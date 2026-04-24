@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pokémon TCG Calculator - Probabilidades y Costos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <h1>🎴 PokéCalc Pro</h1>
+            <div class="sub">Calculadora profesional de probabilidades · Costos por carta · Simulador de sobres y cajas</div>
+        </div>
+
+        <div class="main-grid">
+            <!-- Panel izquierdo: Selección -->
+            <div class="panel">
+                <div class="panel-title">📇 Configuración y Colecciones</div>
+                <div class="panel-content">
+                    <div class="search-area">
+                        <label>🔍 Selecciona tu Pokémon objetivo:</label>
+                        <div class="search-wrapper">
+                            <input type="text" id="pokemonInput" placeholder="Ej: Charizard, Pikachu, Mewtwo..." autocomplete="off">
+                            <div id="suggestions" class="suggestions-box"></div>
+                        </div>
+                    </div>
+
+                    <div class="filter-area">
+                        <label>⚙️ Modo de cálculo:</label>
+                        <select id="modoCalculo">
+                            <option value="sobres">Sobres individuales</option>
+                            <option value="cajas">Cajas completas (36 sobres)</option>
+                            <option value="ambos">Ambos modos</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>📚 Todas las colecciones (15 expansiones):</label>
+                        <div id="coleccionesContainer" class="colecciones-list"></div>
+                    </div>
+
+                    <button id="calcularBtn" class="btn-primary">✨ Calcular costo y probabilidades ✨</button>
+                    <button id="resetBtn" class="btn-secondary">⟳ Limpiar resultados</button>
+                </div>
+            </div>
+
+            <!-- Panel derecho: Resultados -->
+            <div class="panel">
+                <div class="panel-title">📊 Resultados detallados</div>
+                <div class="panel-content" id="resultadosPanel">
+                    <div class="welcome-card">
+                        <div class="result-title">⚡ Bienvenido a PokéCalc Pro</div>
+                        <p>Selecciona un Pokémon y obtén:</p>
+                        <ul>
+                            <li>💰 Costo esperado por sobres sueltos</li>
+                            <li>📦 Costo esperado por cajas selladas</li>
+                            <li>🎲 Probabilidades realistas por sobre/caja</li>
+                            <li>🏆 Ranking de colecciones más económicas</li>
+                            <li>📊 Simulación de 1000 intentos (Monte Carlo)</li>
+                        </ul>
+                    </div>
+                    <div id="dynamicResults"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🃏 Datos basados en probabilidades reales del TCG · Actualizado 2025 · Todos los precios en EUR (€)</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

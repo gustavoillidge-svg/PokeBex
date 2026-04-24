@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a472a 0%, #0a1f12 100%);
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    backdrop-filter: blur(0px);
+}
+
+.header {
+    background: linear-gradient(135deg, #dc0a2d 0%, #8a1c2c 100%);
+    padding: 1.8rem 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    border-bottom: 4px solid #ffde6e;
+}
+
+.header h1 {
+    font-size: 2.3rem;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sub {
+    opacity: 0.95;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+@media (max-width: 900px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+    
+    body {
+        padding: 1rem;
+    }
+}
+
+.panel {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.panel:hover {
+    box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+}
+
+.panel-title {
+    background: #2d5a2c;
+    color: #fff3cd;
+    padding: 1.2rem 1.8rem;
+    font-weight: bold;
+    font-size: 1.35rem;
+    border-left: 6px solid #ffde6e;
+}
+
+.panel-content {
+    padding: 1.8rem;
+}
+
+.search-area, .filter-area {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    font-weight: 700;
+    color: #2c3e2f;
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    font-size: 1rem;
+    transition: all 0.2s;
+    background: #fefcf5;
+}
+
+input:focus, select:focus {
+    border-color: #dc0a2d;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 10, 45, 0.1);
+}
+
+.suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions-box.active {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background 0.1s;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestion-item:hover {
+    background: #fff3cd;
+}
+
+.colecciones-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 1rem 0;
+    border: 1px solid #e9e2d0;
+    border-radius: 1rem;
+    background: #fefaf2;
+}
+
+.coleccion-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ece0cc;
+    transition: background 0.15s;
+    cursor: pointer;
+}
+
+.coleccion-item:hover {
+    background: #fff7e5;
+    transform: translateX(4px);
+}
+
+.coleccion-nombre {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.coleccion-precios {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #2d5a2c;
+    font-weight: 500;
+}
+
+.badge {
+    background: #ffde6e;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-left: 8px;
+    color: #2d3748;
+}
+
+.btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.8rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #dc0a2d 0%, #b00826 100%);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(220, 10, 45, 0.3);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #2d3748;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e0;
+    transform: translateY(-1px);
+}
+
+.result-card {
+    background: #fef9ef;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    margin-top: 1rem;
+    border: 1px solid #f5e6d3;
+}
+
+.result-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-left: 5px solid #dc0a2d;
+    padding-left: 12px;
+    margin-bottom: 1rem;
+    color: #2d3748;
+}
+
+.price-big {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #dc0a2d;
+    display: inline-block;
+    margin: 0.5rem 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid #e2d8bf;
+}
+
+th {
+    background: #2d5a2c;
+    color: white;
+    font-weight: 600;
+}
+
+tr:hover {
+    background: #fff7e5;
+}
+
+.highlight {
+    background: #fff1c1;
+    font-weight: bold;
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, #fef9ef 0%, #fff7e5 100%);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.welcome-card ul {
+    margin-left: 1.5rem;
+    margin-top: 0.8rem;
+    line-height: 1.6;
+}
+
+.footer {
+    background: #1f2933;
+    color: #9ca3af;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.85rem;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #dc0a2d;
+}
+
+.error-message {
+    background: #fed7d7;
+    color: #9b2c2c;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid #dc0a2d;
+}
+
+.stat-box {
+    background: white;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    margin: 0.8rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dc0a2d;
+    border-radius: 10px;
+}
